@@ -25,14 +25,6 @@ Dim FileNumber As Long
     Close #FileNumber
 End Function
 
-Public Function RemoveExtraSpaces(CleanupString As String) As String
-'removes all double spaces from passed string
-Do While InStr(CleanupString, "  ") <> 0
-    CleanupString = Replace(CleanupString, "  ", " ")
-Loop
-RemoveExtraSpaces = CleanupString
-End Function
-
 
 
 Public Function ArraySearch(arr As Variant, sFindValue As Variant, column As Long) As Long
@@ -161,6 +153,32 @@ CopyFile = fso.CopyFile(Origin_FileNamePath, Destination_filePath & Destination_
 End Function
 
 
+
+Public Function CreateFolder(DirectoryPath As String, CreateIfNot As Boolean) As Boolean
+'if folder does not exist create
+    Dim Exists As Boolean
+    On Error GoTo DoesNotExist
+    Exists = ((GetAttr(DirectoryPath) And vbDirectory) = vbDirectory)
+
+    If Exists Then
+        CreateFolder = True
+    Else
+        If CreateIfNot Then
+            MkDir DirectoryPath
+            CreateFolder = True
+        Else
+            CreateFolder = False
+        End If
+    End If
+    Exit Function
+    
+DoesNotExist:
+    CreateFolder = False
+End Function
+
+
+
+
 Public Function DeleteFile(ByVal FileToDelete As String)
 'Deletes File if exists
    If FileExists(FileToDelete) Then
@@ -183,7 +201,7 @@ End Function
 
 
 Public Function DebugPrintArray(arr As Variant)
-'use to debug print an array
+'Debug print entire array.
 Dim lrow As Long
 Dim lcolumn As Long
 For lrow = LBound(arr, 1) To UBound(arr, 1)
@@ -193,10 +211,10 @@ For lrow = LBound(arr, 1) To UBound(arr, 1)
 Next lrow
 End Function
 
-Public Function Force_CompileProject() As Boolean
+Public Function ForceCompileProject() As Boolean
 'complies your code programmatically
 DoCmd.RunCommand acCmdCompileAndSaveAllModules
-Force_CompileProject = Application.IsCompiled
+ForceCompileProject = Application.IsCompiled
 End Function
 
 
@@ -216,34 +234,12 @@ End If
 End Function
 
 
-Public Function FolderExistsCreate(DirectoryPath As String, CreateIfNot As Boolean) As Boolean
-'if folder does not exist create
-    Dim Exists As Boolean
-    On Error GoTo DoesNotExist
-    Exists = ((GetAttr(DirectoryPath) And vbDirectory) = vbDirectory)
-
-    If Exists Then
-        FolderExistsCreate = True
-    Else
-        If CreateIfNot Then
-            MkDir DirectoryPath
-            FolderExistsCreate = True
-        Else
-            FolderExistsCreate = False
-        End If
-    End If
-    Exit Function
-    
-DoesNotExist:
-    FolderExistsCreate = False
-End Function
 
 
-
-Public Function Force_CompileProject() As Boolean
+Public Function ForceCompileProject() As Boolean
 'complies your code programmatically
 DoCmd.RunCommand acCmdCompileAndSaveAllModules
-Force_CompileProject = Application.IsCompiled
+ForceCompileProject = Application.IsCompiled
 End Function
 
 
@@ -265,7 +261,7 @@ End Function
 
 
 Public Function GetFileCount(folderspec As String) As Integer
-' better than using DoEvents which eats up all the CPU cycles
+' returns total files in folder
    Dim fso As Object
    Set fso = CreateObject("Scripting.FileSystemObject")
    If fso.FolderExists(folderspec) Then
@@ -274,6 +270,7 @@ Public Function GetFileCount(folderspec As String) As Integer
       GetFileCount = -1
    End If
 End Function
+
 
 
 Public Function GetFilenameFromPath(ByVal strPath As String) As String
@@ -477,6 +474,16 @@ End Function
 
 
 
+Public Function RemoveExtraSpaces(CleanupString As String) As String
+'removes all double spaces from passed string
+Do While InStr(CleanupString, "  ") <> 0
+    CleanupString = Replace(CleanupString, "  ", " ")
+Loop
+RemoveExtraSpaces = CleanupString
+End Function
+
+
+
 Public Function TransposeArray(myarray As Variant) As Variant
 'swaps column and rows of an array
 Dim X As Long
@@ -512,3 +519,6 @@ Public Function WaitForTime(datDate As Date)
     DoEvents
   Loop Until Now >= datDate
 End Sub
+
+
+

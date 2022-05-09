@@ -41,3 +41,22 @@ I like to think of all the functions in this libary as foundation functions that
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
 - WaitForTime: Waits until the specified date and time.
+
+**Access Functions**
+- Backup_BE_Tables: Backup all tables in database to specified folder. 
+- ChangeProperty: Changes access option properties. Usefull when automating the creation of an ACCDE file.
+- CloseAllOpenForms: Close all open Forms.
+- CompactAndRepairAll: Automates the compact and repair of all linked tables in a database. The user must still click an 'ok' button for every linked Backend file associated with tables.
+- Create_ACCDE_File: Automatically creates an ACCDE File with appropriate settings and such for a clean accde view.
+- CreateTableArray: Conversts a table into an array.
+- ErrorHandelerMsgBoxLog: Use this in your error handle routines instead of msgbox. Write errors to txt file and or a Table. Passes error to msgbox for user visibility.
+- ExportTableExcel: Exports table to Excel File with option to exclude columns by name.
+- IsFormOpen: Checks is form is already open.
+- IsFormLoaded: A more robust version of isformopen, but allows the detection of subforms. Use LookupFormName and LookupControl to speed up subform open find.
+- ListboxSelectionClear: Clears Listbox selections.
+- ListboxSelectionArray: Transfer selected items in a listbox to an array.
+- RelinkBackend: Relink the tables to new backend filenamepath.
+- RefreshODBCLinks: Refresh ODBC Connections.
+- RepairDatabase: Automates the compact and repair of specified linked table. The user must still click an 'ok' button.
+- VerifyReqFields: Validates all required fields on a form are not blank. If any are blank tells use which field it is returns false.
+

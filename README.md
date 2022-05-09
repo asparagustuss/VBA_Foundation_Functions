@@ -58,5 +58,5 @@ I like to think of all the functions in this libary as foundation functions that
 - RelinkBackend: Relink the tables to new backend filenamepath.
 - RefreshODBCLinks: Refresh ODBC Connections.
 - RepairDatabase: Automates the compact and repair of specified linked table. The user must still click an 'ok' button.
-- VerifyReqFields: Validates all required fields on a form are not blank. If any are blank tells use which field it is returns false.
+- VerifyReqFields: Validates all required fields on a form are not blank. If any are blank tells user which field it is returns false.
 

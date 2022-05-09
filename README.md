@@ -41,4 +41,3 @@ I like to think of all the functions in this libary as foundation functions that
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
 - WaitForTime: Waits until the specified date and time.
-- 

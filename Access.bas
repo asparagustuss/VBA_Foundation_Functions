@@ -1,9 +1,8 @@
 
-
 Public Function Backup_BE_Tables(BE_Directory As String, Optional ByVal SaveLocation As String, Optional ByVal Save_Identifier As String) As String
 'Backup all tables in database to specified folder. 
 'Current functions uses a Load_Globals function that you will need to create or deploy another method to gather current DB path like currentdb. etc
-On Error GoTo ErrorHandler
+
     DoCmd.SetWarnings False
     DoCmd.Hourglass True
     Dim CurrentDateTime As String
@@ -44,17 +43,6 @@ On Error GoTo ErrorHandler
     Next
 
 Backup_BE_Tables = CurrentDateTime
-    
-ErrorHandler:
-    If (Err.Number > 0) Then
-        Backup_BE_Tables = -1
-        Select Case Err.Number
-            Case Else
-                Call ErrorHandelerMsgBoxLog(Err.Number, Err.Description, "Backup_Local_BE_Tables")
-        End Select
-        Resume Next
-    End If
-CleanExitTask:
 
 Set tdf = Nothing
 Set db = Nothing
@@ -238,6 +226,7 @@ End Function
 
 
 Public Function ExportTableExcel(TableName As String, ExportFileNamePath As String, Optional ColumnExcludes As String, Optional ExportHeaderNames As Boolean = True, Optional ExportFormat As AcSpreadSheetType = acSpreadsheetTypeExcel9, Optional WorksheetName As String)
+'Exports table to Excel File with option to exclude column names.
 '----ColumnExcludes must be comma seperated ("Column_2,Column_5")
 Dim db As DAO.Database
 Dim SQL_String As String
@@ -374,7 +363,8 @@ End Function
 
 
 Public Sub RefreshODBCLinks(newConnectionString As String)
-'Refresh ODBC Connections (this may not do what you are trying to do. It is usefule in certain instances like refreshing to update new or deleted tables)
+'Refresh ODBC Connections
+'this may not do what you are trying to do. It is useful in certain instances like refreshing to update new or deleted tables
     Dim db As DAO.Database
     Dim tb As DAO.TableDef
     Set db = CurrentDb
@@ -394,6 +384,7 @@ End Sub
 
 Function RepairDatabase(strSource As String, strDestination As String) As Boolean.
 'Automates the compact and repair of specified linked table. The user must still click an 'ok' button.
+'You must verify that the database is not in use by other users before calling.
     On Error GoTo Error_Handler
     RepairDatabase = _
         Application.CompactRepair( _
@@ -410,6 +401,9 @@ End Function
 
 Public Function VerifyReqFields(ReqFieldsList As Variant) As Boolean
 'Validates all required fields on a form are not blank. If any are blank tells use which field it is returns false.
+'Store all required field control names in ReqFieldsList array.
+'Array(Me.Name, Me.PhoneNumber, Me.Comments)
+'This creates a much cleaner required form validation method.
 For Each item In ReqFieldsList
     If isBlankOrNull(item.Value) Then
         VerifyReqFields = False

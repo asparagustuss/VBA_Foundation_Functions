@@ -284,49 +284,6 @@ End Function
 
 
 
-Public Function GetRandomWeightedNo1(ByVal TotalChoices As Integer, ByVal ChoiceWeights As Variant) As Integer
-'returns random weighted value
-Dim SumOfWeight As Integer
-Dim RandomSelection As Integer
-Dim i As Integer
-
-SumOfWeight = 0
-For i = 0 To TotalChoices
-   SumOfWeight = SumOfWeight + ChoiceWeights(i)
-Next i
-RandomSelection = GetRndNo(1, SumOfWeight)
-For i = 0 To TotalChoices
-    If RandomSelection < ChoiceWeights(i) Then
-        Exit For
-    Else
-        RandomSelection = RandomSelection - ChoiceWeights(i)
-    End If
-Next i
-
-GetRandomWeightedNo1 = i
-End Function
-
-
-Public Function GetRandomWeightedNo2(ByVal ChoicesAndWeights As Variant) As Variant
-'returns random weighted value from array
-'ChoicesAndWeights Must be a multidimensional Array. First Column is Choices, Second Column Weights
-Dim RandomSelection As Integer
-Dim i As Integer
-Dim k As Integer
-Dim RandomWeightPool() As Variant
-ReDim RandomWeightPool(0 To 0)
-
-For i = LBound(ChoicesAndWeights) To UBound(ChoicesAndWeights)
-    For k = 0 To ChoicesAndWeights(i, 1)
-        RandomWeightPool(UBound(RandomWeightPool)) = ChoicesAndWeights(i, 0)          'Assign the array element
-        ReDim Preserve RandomWeightPool(UBound(RandomWeightPool) + 1) 'Allocate next element
-    Next k
-Next i
-ReDim Preserve RandomWeightPool(LBound(RandomWeightPool) To UBound(RandomWeightPool) - 1)  'Deallocate the last, unused eleme
-GetRandomWeightedNo2 = RandomWeightPool(GetRndNo(0, UBound(RandomWeightPool)))
-End Function
-
-
 
 Public Function isBlankOrNull(ByVal TestingValue As Variant)
 'returns true if passed value is null or "" reguardless of variable type. I use this so much I almost forget its not a built in VBA Function.
@@ -474,6 +431,29 @@ End Function
 
 
 
+
+Public Function RandomWeightedNumber(ByVal ChoicesAndWeights As Variant) As Variant
+'returns random weighted value from array
+'ChoicesAndWeights Must be a multidimensional Array. First Column is Choices, Second Column Weights
+Dim RandomSelection As Integer
+Dim i As Integer
+Dim k As Integer
+Dim RandomWeightPool() As Variant
+ReDim RandomWeightPool(0 To 0)
+
+For i = LBound(ChoicesAndWeights) To UBound(ChoicesAndWeights)
+    For k = 0 To ChoicesAndWeights(i, 1)
+        RandomWeightPool(UBound(RandomWeightPool)) = ChoicesAndWeights(i, 0)          'Assign the array element
+        ReDim Preserve RandomWeightPool(UBound(RandomWeightPool) + 1) 'Allocate next element
+    Next k
+Next i
+ReDim Preserve RandomWeightPool(LBound(RandomWeightPool) To UBound(RandomWeightPool) - 1)  'Deallocate the last, unused eleme
+GetRandomWeightedNo2 = RandomWeightPool(GetRndNo(0, UBound(RandomWeightPool)))
+End Function
+
+
+
+
 Public Function RemoveExtraSpaces(CleanupString As String) As String
 'removes all double spaces from passed string
 Do While InStr(CleanupString, "  ") <> 0
@@ -481,6 +461,8 @@ Do While InStr(CleanupString, "  ") <> 0
 Loop
 RemoveExtraSpaces = CleanupString
 End Function
+
+
 
 
 

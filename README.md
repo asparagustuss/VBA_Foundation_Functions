@@ -29,8 +29,6 @@ I like to think of all the functions in this libary as foundation functions that
 - GetBetween: Returns strings inbetween two strings.
 - GetFileCount: Returns total files in folder.
 - GetFilenameFromPath: Returns the rightmost characters of a string upto but not including the rightmost '\'.
-- GetRandomWeightedNo1: Returns random weighted value.
-- GetRandomWeightedNo2: Returns random weighted value from array.
 - IsBlankOrNull: Returns true if passed value is null or "" reguardless of variable type. I use this so much I almost forget its not a built in VBA Function.
 - IsFileOpen: Verifies if file is actively open on this or another computer.
 - IsNumberKeyPress: Verifies if number key on number key row or numberpad is pushed. Usefill in certain situations to only allow number key push on number only fields.
@@ -38,6 +36,8 @@ I like to think of all the functions in this libary as foundation functions that
 - openfile: Open file if exists.
 - Pause: Waits X time in seconds.
 - RandomNumberBetween: Returns random number between uper and lower passed values.
+- RandomWeightedNo1: Returns random weighted value.
+- RandomWeightedNo2: Returns random weighted value from array.
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
 - WaitForTime: Waits until the specified date and time.

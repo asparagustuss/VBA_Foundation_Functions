@@ -31,7 +31,7 @@ I like to think of all the functions in this libary as foundation functions that
 - GetFilenameFromPath: Returns the rightmost characters of a string upto but not including the rightmost '\'.
 - IsBlankOrNull: Returns true if passed value is null or "" reguardless of variable type. I use this so much I almost forget its not a built in VBA Function.
 - IsFileOpen: Verifies if file is actively open on this or another computer.
-- IsNumberKeyPress: Verifies if number key on number key row or numberpad is pushed. Usefill in certain situations to only allow number key push on number only fields.
+- IsNumberKeyPress: Verifies if character passed is number or numberpad number character.
 - IsProcessRunning: Use to check active windows processes.
 - openfile: Open file if exists.
 - Pause: Waits X time in seconds.

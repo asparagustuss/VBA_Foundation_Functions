@@ -39,6 +39,8 @@ I like to think of all the functions in this libary as foundation functions that
 - RandomWeightedNumber: Returns random weighted value from array.
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
+- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE by Module name.
+- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE for all Modules
 - WaitForTime: Waits until the specified date and time.
 
 **Access Functions**

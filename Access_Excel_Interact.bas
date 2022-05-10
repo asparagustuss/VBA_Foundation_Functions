@@ -24,7 +24,7 @@ End Function
 
 
 Public Function CloseExcelFile(ByVal FileNamePath As String, Optional SaveChanges as Boolean = True, Optional CloseExcel as Boolean = True)
-'Will close specific Excel workbook.
+'Will close specific Excel workbook based on filenamepath.
 Dim xl As Excel.Application
 Dim wb As Workbook
 If IsWorkbookOpen(FileNamePath) Then
@@ -51,8 +51,8 @@ Set xl = Nothing
 Set wb = Nothing
 End Function
 
-        
-        
+
+
 Public Function isExcelOpen() As Boolean
 'Returns true if an instance of Excel is Open.
 On Error GoTo ErrorHandler
@@ -135,7 +135,7 @@ End Function
 
 
 Public Function OpenWorkbook(FileNamePath As String)
-'Open an Excel Workbook
+'Open an Excel Workbook based on filenamepath.
     Dim xl As Excel.Application
     Dim wb As Excel.Workbook
 

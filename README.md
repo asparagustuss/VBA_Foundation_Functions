@@ -31,7 +31,7 @@ I like to think of all the functions in this libary as foundation functions that
 - GetFilenameFromPath: Returns the rightmost characters of a string upto but not including the rightmost '\'.
 - GetRandomWeightedNo1: Returns random weighted value.
 - GetRandomWeightedNo2: Returns random weighted value from array.
-- isBlankOrNull: Returns true if passed value is null or "" reguardless of variable type. I use this so much I almost forget its not a built in VBA Function.
+- IsBlankOrNull: Returns true if passed value is null or "" reguardless of variable type. I use this so much I almost forget its not a built in VBA Function.
 - IsFileOpen: Verifies if file is actively open on this or another computer.
 - IsNumberKeyPress: Verifies if number key on number key row or numberpad is pushed. Usefill in certain situations to only allow number key push on number only fields.
 - IsProcessRunning: Use to check active windows processes.
@@ -59,4 +59,13 @@ I like to think of all the functions in this libary as foundation functions that
 - RefreshODBCLinks: Refresh ODBC Connections.
 - RepairDatabase: Automates the compact and repair of specified linked table. The user must still click an 'ok' button.
 - VerifyReqFields: Validates all required fields on a form are not blank. If any are blank tells user which field it is returns false.
+
+**Access_Excel_Interact**
+- CloseAllExcel: Close all open Excel workbooks.
+- CloseExcelFile: Close specific Excel workbook based on filenamepath.
+- IsExcelOpen: Returns true if an instance of Excel is Open.
+- IsWorkbookOpen: Returns true if specified workbook is open.
+- IsUserCellChangesUncommited: Determines if user has entered info into a cell, but has not yet commited the data. Returns True if it is uncommited.
+- OpenWorkbook: Open an Excel Workbook based on filenamepath.
+
 

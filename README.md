@@ -36,8 +36,7 @@ I like to think of all the functions in this libary as foundation functions that
 - openfile: Open file if exists.
 - Pause: Waits X time in seconds.
 - RandomNumberBetween: Returns random number between uper and lower passed values.
-- RandomWeightedNo1: Returns random weighted value.
-- RandomWeightedNo2: Returns random weighted value from array.
+- RandomWeightedNumber: Returns random weighted value from array.
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
 - WaitForTime: Waits until the specified date and time.

@@ -6,6 +6,7 @@ I like to think of all the functions in this libary as foundation functions that
 1. General: VBA Functions that could probably be used in any app.
 2. Access: Specific To Access.
 3. Access_Excel_Interact: Used for Excel Doc interaction from within Access.
+4. VBA_IDE: Functions that edit VBA IDE Code itself.
 
 *Notes:*
 1. *I intentionally do not use OnError unless its required to make the function operate. I perfer to handle errors in the main function that called these foundation functions. Just pretend these are built into VBA and handle errors like you normally would.*
@@ -39,8 +40,6 @@ I like to think of all the functions in this libary as foundation functions that
 - RandomWeightedNumber: Returns random weighted value from array.
 - RemoveExtraSpaces: Removes all double spaces from passed string.
 - TransposeArray: Swaps column and rows of an array.
-- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE by Module name.
-- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE for all Modules
 - WaitForTime: Waits until the specified date and time.
 
 **Access Functions**
@@ -68,5 +67,9 @@ I like to think of all the functions in this libary as foundation functions that
 - IsWorkbookOpen: Returns true if specified workbook is open.
 - IsUserCellChangesUncommited: Determines if user has entered info into a cell, but has not yet commited the data. Returns True if it is uncommited.
 - OpenWorkbook: Open an Excel Workbook based on filenamepath.
+
+**VBA_IDE***
+- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE by Module name.
+- VBA_Modules_ReplaceAll: Replace matched text in a VBA IDE for all Modules
 
 

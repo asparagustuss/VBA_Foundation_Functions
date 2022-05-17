@@ -7,6 +7,7 @@ I like to think of all the functions in this libary as foundation functions that
 2. Access: Specific To Access.
 3. Access_Excel_Interact: Used for Excel Doc interaction from within Access.
 4. VBA_IDE: Functions that edit VBA IDE Code itself.
+5. Example-Access_Auto_ACCDE_Creation - End user ACCDE creation is simplified into a single subroutine.
 
 *Notes:*
 1. *I intentionally do not use OnError unless its required to make the function operate. I perfer to handle errors in the main function that called these foundation functions. Just pretend these are built into VBA and handle errors like you normally would.*

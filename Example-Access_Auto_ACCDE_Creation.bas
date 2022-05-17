@@ -2,7 +2,7 @@
 'The below is a demonstration using the VBA Foundation Functions to automate the creation of a completely 
 'locked out ACCDE file that would be ready for end user front end deployment. This makes deploying end user front ends very fast.
 
-'---Sub linked to button click even on Access form---
+'---Sub linked to button click even on Access form----
 Private Sub Create_ACCDE_Click()
 DoCmd.SetWarnings True
 Dim db As DAO.Database
